@@ -29,6 +29,7 @@ function goos() {
 
 function defaultLanguage() {
     const threeToTwo = {
+        'zhs': 'zh',
         'eng': 'en',
         'jpn': 'ja',
     };
@@ -36,10 +37,10 @@ function defaultLanguage() {
     if (lang.length === 3) {
         lang = threeToTwo[lang];
     }
-    if (new Set(['en', 'ja']).has(lang)) {
+    if (new Set(['zh', 'en', 'ja']).has(lang)) {
         return lang;
     }
-    return 'en';
+    return 'zh';
 }
 
 function currentLanguage() {
@@ -52,6 +53,7 @@ function currentLanguage() {
 
 function languageName(code) {
     return {
+        'zh': '中文',
         'en': 'English',
         'ja': '日本語',
     }[code];
@@ -297,10 +299,10 @@ function initLanguageSelector() {
     }
     if (langs.size) {
         const sortedLangs = Array.from(langs).sort((a, b) => {
-            if (a === 'en') {
+            if (a === 'zh') {
                 return -1;
             }
-            if (b === 'en') {
+            if (b === 'zh') {
                 return 1;
             }
             if (a < b) {
