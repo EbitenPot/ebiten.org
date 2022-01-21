@@ -81,14 +81,14 @@
 <ul>
   <li lang="en"><a href="./features.html">Features</a></li>
   <li lang="ja"><a href="./features.html">機能</a></li>
-  <li lang="zh"><a href="./features.html">特性支持</a></li>
+  <li lang="zh"><a href="./features.html">功能特性支持</a></li>
   <li lang="en"><a href="./shader.html">Shader</a></li>
   <li lang="ja"><a href="./shader.html">シェーダー</a></li>
   <li lang="zh"><a href="./shader.html">着色器</a></li>
 </ul>
 <h3 lang="en">Release Notes</h2>
 <h3 lang="ja">リリースノート</h2>
-<h3 lang="zh">发布版日志</h2>
+<h3 lang="zh">发布日志</h2>
 <ul>
   <li><a href="./2.2.html">2.2</a></li>
   <li><a href="./2.1.html">2.1</a></li>
@@ -103,12 +103,14 @@
   <li><a href="./cheatsheet.html">Cheat Sheet</a></li>
   <li lang="en"><a href="./matrix.html">Matrix in Ebiten</a></li>
   <li lang="ja"><a href="./matrix.html">Ebiten における行列</a></li>
+  <li lang="zh"><a href="./matrix.html">Ebiten中的矩阵</a></li>
   <li><a href="./faq.html">FAQ</a></li>
   <li><a href="./performancetips.html">Performance Tips</a></li>
   <li><a href="./packages.html">Packages</a></li>
   <li><a href="./implementation.html">Implementation</a></li>
   <li lang="en"><a href="./to_v2.html">Ebiten v2 Migration Guide</a></li>
   <li lang="ja"><a href="./to_v2.html">Ebiten v2 移行ガイド</a></li>
+  <li lang="zh"><a href="./to_v2.html">Ebiten V2 升级迁移指南</a></li>
 </ul>
 
     </nav>
@@ -380,13 +382,145 @@
     <li>macOS で FPS が落ちる問題の修正 (<a href="https://github.com/hajimehoshi/ebiten/issues/1939">#1939</a>)。</li>
   </ul>
 </div>
-
+<div lang="zh">
+  <h1>Ebiten 2.2 发布日志</h1>
+  <h2>v2.2.0</h2>
+  <p><a href="https://github.com/hajimehoshi/ebiten/milestone/50?closed=1">v2.2.0的Issues</a></p>
+  <h3>任天堂 Switch™</h3>
+  <p>Ebiten现已支持任天堂Switch游戏机. 更多内容请至 <a href="https://developer.nintendo.com/">任天堂平台开发主页</a>.</p>
+  <h3>音频播放</h3>
+  <p>(<a href="https://github.com/hajimehoshi/ebiten/issues/1549">#1549</a>)</p>
+  <p>The audio implementaiton was much improved to have a bigger buffer for each player. Delays and noises should be reduced.</p>
+  <h3>标准手柄布局映射</h3>
+  <p>(<a href="https://github.com/hajimehoshi/ebiten/issues/1557">#1557</a>)</p>
+  <p>Until v2.1, Ebiten's gamepad button and axis assignments varied among gamepads and environments. For example, a gamepad button number 1 might indicate a different physical button in another environment. It was hard to keep poratbility with gamepads.</p>
+  <p>Ebiten v2.2 adopted <a href="https://www.w3.org/TR/gamepad/#dfn-standard-gamepad">the standard gamepad layout in the Web standard</a>. The standard gamepad layout is a model for modern gamepads like Xbox, PlayStation and Nintendo Switch. The standard gamepad layout assumes these buttons or axes:</p>
+  <ul>
+    <li>Two sticks</li>
+    <li>Four buttons on the left hand (usually for arrows or D-pad)</li>
+    <li>Four buttons on the right hand</li>
+    <li>Four buttons on the front</li>
+    <li>Three buttons on the center</li>
+  </ul>
+  <figure>
+    <p class="img"><img src="/images/documents/2.2/gamepad.png" alt="The standard gamepad layout"></p>
+    <figcaption>The standard gamepad layout</figcaption>
+  </figure>
+  <p>If the standard gamepad layout is available for your gamepad in your environment, you can use APIs for standard gamepads like <code>StandardGamepadButton</code>. You don't have to worry about the button/axis assignment differences.</p>
+  <p>On desktops, <a href="https://github.com/gabomdq/SDL_GameControllerDB">SDL's gamepad database</a> is used. On browsers, browsers' standard mappings are used. On mobiles, mappings are not available yet.</p>
+  <ul>
+    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#StandardGamepadAxis"><code>type ebiten.StandardGamepadAxis</code></a></li>
+    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#StandardGamepadButton"><code>type ebiten.StandardGamepadButton</code></a></li>
+    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#IsStandardGamepadButtonPressed"><code>ebiten.IsStandardGamepadButtonPressed</code></a></li>
+    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#IsStandardGamepadLayoutAvailable"><code>ebiten.IsStandardGamepadLayoutAvailable</code></a></li>
+    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#StandardGamepadAxisValue"><code>ebiten.StandardGamepadAxisValue</code></a></li>
+    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#StandardGamepadButtonValue"><code>ebiten.StandardGamepadButtonValue</code></a></li>
+    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#UpdateStandardGamepadLayoutMappings"><code>ebiten.UpdateStandardGamepadLayoutMappings</code></a></li>
+  </ul>
+  <p>Unfortunately, not all gamepads have mappings for the standard gamepad layout. Use the existing APIs for unsupported gamepads.</p>
+  <p>For actual usages, see <code>examples/gamepad</code>.</p>
+  <h3>新的矢量图形API</h3>
+  <p>(<a href="https://github.com/hajimehoshi/ebiten/issues/1684">#1684</a>)</p>
+  <figure>
+    <p class="img thumbnail"><img src="/images/documents/2.2/vector.png" width="640" alt="A screenshot of examples/vector"></p>
+    <figcaption>A screenshot of <code>examples/vector</code></figcaption>
+  </figure>
+  <p>Vector graphics APIs in Ebiten were redesigned and reimplemented with stencil buffers.</p>
+  <p>A member <code>FillMode</code> is added to <code>ebiten.DrawTrianglesOptions</code>. The fill mode <code>ebiten.EvenOdd</code> indicates a rule how an overlapped region is rendered. By combining this and a new function <code>AppendVerticesAndIndicesForFilling</code> in <code>vector</code> package, you can render complex shapes.</p>
+  <p>These APIs are added to <code>vector</code> package:</p>
+  <ul>
+    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2/vector#Path.AppendVerticesAndIndicesForFilling"><code>(*vector.Path).AppendVerticesAndIndicesForFilling</code></a></li>
+    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2/vector#Path.Arc"><code>(*vector.Path).Arc</code></a></li>
+    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2/vector#Path.ArcTo"><code>(*vector.Path).ArcTo</code></a></li>
+  </ul>
+  <p>For actual usages, see <code>examples/vector</code>.</p>
+  <h3>MacOS原生全屏</h3>
+  <p>(<a href="https://github.com/hajimehoshi/ebiten/issues/1506">#1506</a>)</p>
+  <p>On macOS, now fullscreening a window creates a new independent space and resizes the window to fit with the space.</p>
+  <h3>处理窗口关闭事件</h3>
+  <p>(<a href="https://github.com/hajimehoshi/ebiten/issues/1574">#1574</a>)</p>
+  <p>You can prevent the window from being closed and do something when the window is being closed.</p>
+  <ul>
+    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#IsWindowBeingClosed"><code>ebiten.IsWindowBeingClosed</code></a></li>
+    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#IsWindowClosingHandled"><code>ebiten.IsWindowClosingHandled</code></a></li>
+    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#SetWindowClosingHandled"><code>ebiten.SetWindowClosingHandled</code></a></li>
+  </ul>
+  <p>For actual usages, see <code>examples/windowclosing</code>.</p>
+  <h3>新的用于静态程序的垂直同步模式</h3>
+  <p>(<a href="https://github.com/hajimehoshi/ebiten/issues/1556">#1556</a>)</p>
+  <p>In addition to vsync on and vsync off, Ebiten v2.2 added a new mode: <code>FPSModeVsyncOffMinimum</code>. This indicates that the game doesn't sync with vsync, and the game is updated only when necessary like an input is detected. This is useful for a static application.</p>
+  <ul>
+    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#FPSMode"><code>type ebiten.FPSMode</code></a></li>
+    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#SetFPSMode"><code>ebiten.SetFPSMode</code></a></li>
+  </ul>
+  <h3><code>Append*</code> functions</h3>
+  <p>(<a href="https://github.com/hajimehoshi/ebiten/issues/1692">#1692</a>, <a href="https://github.com/hajimehoshi/ebiten/issues/1705">#1705</a>)</p>
+  <p>There are some Ebiten functions that return a new slice for each call. Creating a new slice for each call allocates memory and is not efficient. To mitigate this issue, new functions were added to accept a slice and append new elements. These work like the built-in function <code>append</code>. If the given slice has enough capacity, the functions don't allocate memory. If the given slice is empty or nil, a new slice is created.</p>
+  <ul>
+    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#AppendGamepadIDs"><code>ebiten.AppendGamepadIDs</code></a></li>
+    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#AppendInputChars"><code>ebiten.AppendInputChars</code></a></li>
+    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#AppendTouchIDs"><code>ebiten.AppendTouchIDs</code></a></li>
+    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2/inpututil#AppendJustConnectedGamepadIDs"><code>inpututil.AppendJustConnectedGamepadIDs</code></a></li>
+    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2/inpututil#AppendJustPressedTouchIDs"><code>inpututil.AppendJustPressedTouchIDs</code></a></li>
+    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2/inpututil#AppendPressedKeys"><code>inpututil.AppendPressedKeys</code></a></li>
+  </ul>
+  <h3>性能改进</h3>
+  <ul>
+    <li>Memory usage at <code>ReplacePixels</code> was improved (<a href="https://github.com/hajimehoshi/ebiten/issues/1681">#1681</a>).</li>
+    <li>Allocating color matrices for scaling was improved (<a href="https://github.com/hajimehoshi/ebiten/issues/1658">#1658</a>).</li>
+    <li>Reduced allocations of color matrix values (<a href="https://github.com/hajimehoshi/ebiten/issues/1796">#1796</a>).</li>
+    <li>Ensured to free memory for image pixels soon after they were no longer used (<a href="https://github.com/hajimehoshi/ebiten/issues/1803">#1803</a>).</li>
+  </ul>
+  <h3>新的函数</h3>
+  <ul>
+    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#Image.RGBA64At"><code>(*ebiten.Image).RGBA64At</code></a> (<a href="https://github.com/hajimehoshi/ebiten/issues/1769">#1769</a>).</li>
+    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2/audio#Context.NewPlayer"><code>(*audio.Context).NewPlayer</code></a>: replaces <code>audio.NewPlayer</code> (<a href="https://github.com/hajimehoshi/ebiten/issues/1708">#1708</a>).</li>
+    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2/audio#Context.NewPlayerFromBytes"><code>(*audio.Context).NewPlayerFromBytes</code></a>: replaces <code>audio.NewPlayerFromBytes</code> (<a href="https://github.com/hajimehoshi/ebiten/issues/1708">#1708</a>).</li>
+    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2/text#DrawWithOptions"><code>text.DrawWithOptions</code></a> (<a href="https://github.com/hajimehoshi/ebiten/issues/1461">#1461</a>).</li>
+  </ul>
+  <h3>其他</h3>
+  <ul>
+    <li>A constant <code>ebiten.SyncWithFPS</code> was added to replace <code>ebiten.UncappedTPS</code> (<a href="https://github.com/hajimehoshi/ebiten/issues/1726">#1726</a>).</li>
+    <li>In <code>audio/mp3</code>, <code>audio/vorbis</code>, <code>audio/wav</code> packages, <code>Decode</code> and <code>DecodeWithSampleRate</code> now takes <code>io.Reader</code> instead of <code>io.ReadSeeker</code> (<a href="https://github.com/hajimehoshi/ebiten/issues/1621">#1621</a>).</li>
+    <li>Fixed an issue that <code>dfdx</code> and some functions in non-main function failed to compile in Kage (<a href="https://github.com/hajimehoshi/ebiten/issues/1701">#1701</a>).</li>
+    <li>Fixed the device scale factor on Linux and Unix desktops (Thank you, <a href="https://github.com/divVerent">divVerent</a>!) (<a href="https://github.com/hajimehoshi/ebiten/issues/1774">#1774</a>).</li>
+  </ul>
+  <h2>v2.2.1</h2>
+  <p><a href="https://github.com/hajimehoshi/ebiten/milestone/70?closed=1">v2.2.1的Issues</a></p>
+  <h3>修复Bug</h3>
+  <ul>
+    <li>The screen was scaled wrongly with multiple and various scaling monitors on Windows (<a href="https://github.com/hajimehoshi/ebiten/issues/1844">#1844</a>).</li>
+    <li>在KDE桌面上窗口有时过小 (<a href="https://github.com/hajimehoshi/ebiten/issues/1847">#1847</a>).</li>
+  </ul>
+  <h2>v2.2.2</h2>
+  <p><a href="https://github.com/hajimehoshi/ebiten/milestone/71?closed=1">v2.2.2的Issues</a></p>
+  <h3>修复Bug</h3>
+  <ul>
+    <li>在macOS上按下透明窗口的绿色按钮时崩溃 (<a href="https://github.com/hajimehoshi/ebiten/issues/1857">#1857</a>).</li>
+    <li>发生意外内存分配问题 (<a href="https://github.com/hajimehoshi/ebiten/issues/1860">#1860</a>).</li>
+  </ul>
+  <h2>v2.2.3</h2>
+  <p><a href="https://github.com/hajimehoshi/ebiten/milestone/72?closed=1">v2.2.3的Issues</a></p>
+  <h3>修复Bug</h3>
+  <ul>
+    <li>多显示器崩溃 (<a href="https://github.com/hajimehoshi/ebiten/issues/1878">#1878</a>).</li>
+    <li>当用macOS的绿色按钮从全屏恢复时，屏幕大小没有正确调整 (<a href="https://github.com/hajimehoshi/ebiten/issues/1884">#1884</a>).</li>
+    <li>垂直同步在macOS 12 Monterey上不起作用(<a href="https://github.com/hajimehoshi/ebiten/issues/1885">#1885</a>).</li>
+  </ul>
+  <h2>v2.2.4</h2>
+  <p><a href="https://github.com/hajimehoshi/ebiten/milestone/73?closed=1">v2.2.4的Issues</a></p>
+  <h3>修复Bug</h3>
+  <ul>
+    <li>浏览器调整窗口大小时崩溃 (<a href="https://github.com/hajimehoshi/ebiten/issues/1928">#1928</a>).</li>
+    <li>在macOS上的FPS下降问题 (<a href="https://github.com/hajimehoshi/ebiten/issues/1939">#1939</a>).</li>
+  </ul>
+</div>
       </article>
       <footer>
         <p lang="en">Feedback about this page? <a href="https://github.com/ebiten/ebiten.org/issues/new?body=https%3a%2f%2febiten.org%2fdocuments%2f2.2.html%0a%0a">Please reach out on GitHub</a>. Thank you!</p>
         <p lang="ja">このページに何か問題がありましたら、<a href="https://github.com/ebiten/ebiten.org/issues/new?body=https%3a%2f%2febiten.org%2fdocuments%2f2.2.html%0a%0a">GitHub にて報告</a>していただけると幸いです。</p>
         <p lang="zh">如果您有任何问题,可以反馈至<a href="https://github.com/ebitenpot/ebiten.org/issues/new?body=https%3a%2f%2febiten.org%2fdocuments%2f2.2.html%0a%0a">GitHub issue</a>.</p>
-        <p>2021 EbitenPot Project</p>
+        <p>2021-2022 EbitenPot Project</p>
       </footer>
     </main>
   </body>
