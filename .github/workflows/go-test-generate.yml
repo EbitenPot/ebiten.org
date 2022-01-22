@@ -21,7 +21,7 @@ jobs:
 
     - name: Test generate
       run: go generate .
-    - run: ls
+    - run: bash ls
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.3.1
       with:
