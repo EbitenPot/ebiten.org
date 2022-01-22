@@ -1,6 +1,8 @@
 # ebiten.org
 # Ebiten 中文文档
 
+[![wakatime](https://wakatime.com/badge/github/EbitenPot/ebiten.org.svg)](https://wakatime.com/badge/github/EbitenPot/ebiten.org)
+
 本中文文档基于官方文档(<https://ebiten.org>)翻译.
 
 Github Page: <https://ebitenpot.github.io/ebiten.org/>
