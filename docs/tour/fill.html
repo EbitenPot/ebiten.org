@@ -84,6 +84,7 @@
 </ul>
 <h3 lang="en">Input</h3>
 <h3 lang="ja">入力</h3>
+<h3 lang="zh">输入</h3>
 <ul>
   <li><a href="#">Keyboard (TBD)</a></li>
   <li><a href="#">Mouse (TBD)</a></li>
@@ -93,7 +94,8 @@
     </nav>
     <main>
       <article>
-        <h1>Fill</h1>
+        <div lang="en">
+<h1>Fill</h1>
 <p>Let's see the most fundamental drawing command, <code>Fill</code>.</p>
 <h2>Code</h2>
 <pre data-codesrc="/go/fill/main.go"></pre>
@@ -114,7 +116,30 @@
     <p><code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#Image.Fill">(*ebiten.Image).Fill</a></code> is a function to fill the image with the specified color. The argument <code>color</code> is a value that implements <code><a href="https://golang.org/pkg/image/color/#Color">color.Color</a></code> interface in the standard <code><a href="https://golang.org/pkg/image/color/">image/color</a></code> package. In this example, the color value is red (the red and alpha part is <code>0xff</code>.)</p>
   </div>
 </div>
-
+</div>
+<div lang="zh">
+  <h1>背景填充</h1>
+  <p>Let's see the most fundamental drawing command, <code>Fill</code>.</p>
+  <h2>代码</h2>
+  <pre data-codesrc="/go/fill/main.go"></pre>
+  <div class="grid-container">
+    <div class="grid-item-2">
+      <p>结果大概是这样:</p>
+    </div>
+    <div class="grid-item-2">
+      <p class="img screenshot"><img src="/images/go/fill.png" width="320" height="240"></p>
+    </div>
+  </div>
+  <h2>工作原理</h2>
+  <div class="grid-container">
+    <div class="grid-item-2">
+      <pre data-codesrc="/go/fill/main.go" data-codelinerange="17-17"></pre>
+    </div>
+    <div class="grid-item-2">
+      <p><code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#Image.Fill">(*ebiten.Image).Fill</a></code> is a function to fill the image with the specified color. The argument <code>color</code> is a value that implements <code><a href="https://golang.org/pkg/image/color/#Color">color.Color</a></code> interface in the standard <code><a href="https://golang.org/pkg/image/color/">image/color</a></code> package. In this example, the color value is red (the red and alpha part is <code>0xff</code>.)</p>
+    </div>
+  </div>
+  </div>
       </article>
       <footer>
         <p lang="en">Feedback about this page? <a href="https://github.com/ebiten/ebiten.org/issues/new?body=https%3a%2f%2febiten.org%2ftour%2ffill.html%0a%0a">Please reach out on GitHub</a>. Thank you!</p>

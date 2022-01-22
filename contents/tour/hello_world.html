@@ -1,3 +1,4 @@
+<div lang="en">
 <h1>Hello, World!</h1>
 <p>As the first Ebiten game, let's show the message 'Hello, World!'.</p>
 <p>Before executing the program, you need to install Ebiten. See <a href="/documents/install.html">the instruction to install Ebiten</a>.</p>
@@ -83,3 +84,92 @@
     <p><code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#RunGame">ebiten.RunGame</a></code> is the function to run the main loop of an Ebiten game. The argument is a <code>Game</code> object, that implements <code>ebiten.Game</code>. <code>ebiten.RunGame</code> returns a non-nil error value when an error happen. In this program, when a non-nil error is returned, this error is logged as a fatal error.</p>
   </div>
 </div>
+</div>
+<div lang="zh">
+  <h1>你好,世界!</h1>
+  <p>作为您的第一个Ebiten游戏, 让我们先显示一个'Hello, World!'.</p>
+  <p>在开发前, 您需要先安装Ebiten:<a href="/documents/install.html">安装教程</a></p>
+  <h2>写代码</h2>
+  <p>创建一个类似这样的 <code>main.go</code> 文件:</p>
+  <pre data-codesrc="/go/helloworld/main.go"></pre>
+  <p>然后,用<code>go run</code>运行代码:</p>
+  <pre><code>go run main.go</code></pre>
+  <div class="grid-container">
+    <div class="grid-item-2">
+      <p>如果您看到 'Hello, World!'显示在左上角, 恭喜, 您的游戏已经运行起来了:</p>
+    </div>
+    <div class="grid-item-2">
+      <p class="img screenshot"><img src="/images/go/helloworld.png" width="320" height="240"></p>
+    </div>
+  </div>
+  <h2>工作原理</h2>
+  <div class="grid-container">
+    <div class="grid-item-2">
+      <pre data-codesrc="/go/helloworld/main.go" data-codelinerange="1-8"></pre>
+    </div>
+    <div class="grid-item-2">
+      <p>导入Ebiten包. 这个程序需要两个包: <code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2">github.com/hajimehoshi/ebiten/v2</a></code> 和 <code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2/ebitenutil">github.com/hajimehoshi/ebiten/v2/ebitenutil</a></code>.</p>
+      <p><code>github.com/hajimehoshi/ebiten/v2</code> is the core package of Ebiten, which provides functions for drawing and inputs.</p>
+      <p><code>github.com/hajimehoshi/ebiten/v2/ebitenutil</code> is the utility package of Ebiten. In this program, this package is used to print a debug message on the screen.</p>
+      <p>There are other several packages in Ebiten. See <a href="/documents/packages.html">the packages page</a> for more details.</p>
+    </div>
+    <div class="grid-item-2">
+      <pre data-codesrc="/go/helloworld/main.go" data-codelinerange="10-10"></pre>
+    </div>
+    <div class="grid-item-2">
+      <p>定义 <code>Game</code> 结构体. <code>Game</code> implements <code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#Game">ebiten.Game</a></code> interface. <code>ebiten.Game</code> has necessary functions for an Ebiten game: <code>Update</code>, <code>Draw</code> and <code>Layout</code>. Let's see them one by one.</p>
+    </div>
+    <div class="grid-item-2">
+      <pre data-codesrc="/go/helloworld/main.go" data-codelinerange="12-14"></pre>
+    </div>
+    <div class="grid-item-2">
+      <p>定义 <code>(*Game).Update</code> 函数, that is called every tick. Tick is a time unit for logical updating. The default value is 1/60 [s], then <code>Update</code> is called 60 times per second by default (i.e. an Ebiten game works in 60 ticks-per-second).</p>
+      <p><code>Update</code> updates the game's logical state. This hello-world example doesn't have any state and then this function does nothing.</p>
+      <p><code>Update</code> returns an error value. In this code, <code>Update</code> always returns <code>nil</code>. In general, when updating function returns a non-nil error, the Ebiten game suspends. As this program never returns a non-nil error, the Ebiten game never stops unless the user closes the window.</p>
+    </div>
+    <div class="grid-item-2">
+      <pre data-codesrc="/go/helloworld/main.go" data-codelinerange="16-16"></pre>
+    </div>
+    <div class="grid-item-2">
+      <p>定义 <code>(*Game).Draw</code> 函数, that is called every frame. Frame is a time unit for rendering and this depends on the display's refresh rate. If the monitor's refresh rate is 60 [Hz], <code>Draw</code> is called 60 times per second.</p>
+      <p><code>Draw</code> takes an argument <code>screen</code>, which is a pointer to an <code>ebiten.Image</code>. In Ebiten, all images like images created from image files, offscreen images (temporary render target), and the screen are represented as <code>ebiten.Image</code> objects. <code>screen</code> argument is the final destination of rendering. The window shows the final state of <code>screen</code> every frame.</p>
+    </div>
+    <div class="grid-item-2">
+      <pre data-codesrc="/go/helloworld/main.go" data-codelinerange="17-18"></pre>
+    </div>
+    <div class="grid-item-2">
+      <p><code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2/ebitenutil#DebugPrint">ebitenutil.DebugPrint</a></code> is a utility function to render a debug message on an image. In this case, <code>screen</code> is passed as the render target of the debug printing. As <code>screen</code> is reset (or cleared in another word) whenever <code>Draw</code> is called, <code>DebugPrint</code> should be called every time.</p>
+    </div>
+    <div class="grid-item-2">
+      <pre data-codesrc="/go/helloworld/main.go" data-codelinerange="20-22"></pre>
+    </div>
+    <div class="grid-item-2">
+      <p>定义 <code>(*Game).Layout</code> 函数. <code>Layout</code> accepts an outside size, which is a window size on desktop, and returns the game's logical screen size. This code ignores the arguments and returns the fixed values. This means that the game screen size is always same, whatever the window's size is. <code>Layout</code> will be more meaningful e.g., when the window is resizable.</p>
+    </div>
+    <div class="grid-item-2">
+      <pre data-codesrc="/go/helloworld/main.go" data-codelinerange="24-24"></pre>
+    </div>
+    <div class="grid-item-2">
+      <p>定义  <code>main</code> 函数, 作为入口函数.</p>
+    </div>
+    <div class="grid-item-2">
+      <pre data-codesrc="/go/helloworld/main.go" data-codelinerange="25-25"></pre>
+    </div>
+    <div class="grid-item-2">
+      <p><code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#SetWindowSize">ebiten.SetWindowSize</a></code> sets the window's size. Without calling this, the default window size is used.</code></p>
+    </div>
+    <div class="grid-item-2">
+      <pre data-codesrc="/go/helloworld/main.go" data-codelinerange="26-26"></pre>
+    </div>
+    <div class="grid-item-2">
+      <p><code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#SetWindowTitle">ebiten.SetWindowTitle</a></code> sets the window's title.</code></p>
+    </div>
+    <div class="grid-item-2">
+      <pre data-codesrc="/go/helloworld/main.go" data-codelinerange="27-30"></pre>
+    </div>
+    <div class="grid-item-2">
+      <p><code><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#RunGame">ebiten.RunGame</a></code> is the function to run the main loop of an Ebiten game. The argument is a <code>Game</code> object, that implements <code>ebiten.Game</code>. <code>ebiten.RunGame</code> returns a non-nil error value when an error happen. In this program, when a non-nil error is returned, this error is logged as a fatal error.</p>
+    </div>
+  </div>
+  </div>
+  
