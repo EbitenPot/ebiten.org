@@ -7,6 +7,12 @@
 
 Github Page: <https://ebitenpot.github.io/ebiten.org/>
 
+快快加入Ebiten中文交流群:[953871123](https://jq.qq.com/?_wv=1027&k=XDKjyoa7)
+
+EbitenPot Discord:
+
+![Discord Banner 2](https://discordapp.com/api/guilds/926730113125605396/widget.png?style=banner2)
+
 ## 生成
 在 `contents` 目录下修改网页并运行:
 
