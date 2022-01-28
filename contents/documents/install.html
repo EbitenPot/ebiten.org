@@ -17,13 +17,13 @@
   <h2 lang="zh">桌面环境</h2>
   <p lang="en">Ebiten requires X Window system and you need to install a window manager like GNOME3. See <a href="https://www.freebsd.org/doc/handbook/x11-wm.html">the official manual</a>. Note that you also need to do <code>pkg install xorg</code>.</p>
   <p lang="ja">Ebiten を動かすためには X Window system が必要です。 GNOME3 のようなウィンドウマネージャをインストールする必要があります。<a href="https://www.freebsd.org/doc/handbook/x11-wm.html">公式マニュアル</a>を参照してください。 <code>pkg install xorg</code> を実行する必要があることに注意してください。</p>
-  <p lang="zh">Ebiten 需要 X Window system,因此,您需要安装一个桌面环境，如GNOME3.请参照<a href="https://www.freebsd.org/doc/handbook/x11-wm.html">官方文档</a>.注意,你可能还需要<code>pkg install xorg</code>.</p>
+  <p lang="zh">Ebiten 需要 X Window system,因此,您需要安装一个桌面环境，如 GNOME3。请参照<a href="https://www.freebsd.org/doc/handbook/x11-wm.html">官方文档</a>.注意,你可能还需要<code>pkg install xorg</code>.</p>
 </div>
 
 <h2>Go</h2>
 <p lang="en">Install <a href="https://golang.org/">Go</a> on your machine. Ebiten requires Go 1.15 or later.</p>
 <p lang="ja"><a href="https://golang.org/">Go</a> をインストールしてください。 Ebiten を動かすためには Go 1.15 以降が必要です。</p>
-<p lang="zh">在您的计算机中安装<a href="https://golang.google.cn/">Go</a>. Ebiten需要Go 1.15或更高版本.</p>
+<p lang="zh">在您的计算机中安装<a href="https://golang.google.cn/">Go</a>。 Ebiten需要Go 1.15或更高版本。</p>
 
 <div data-tags="windows">
   <p lang="en">Note that you do NOT need a C compiler for Ebiten on Windows.</p>
@@ -98,19 +98,19 @@ go mod init github.com/yourname/yourgame</code></pre>
 
 <p lang="en">Then, run the command to execute an Ebiten example.</p>
 <p lang="ja">次に、 Ebiten のサンプルを実行します。</p>
-<p lang="zh">然后, 通过命令行运行一个Ebiten示例.</p>
+<p lang="zh">然后, 通过命令行运行一个 Ebiten示例. </p>
 
 <pre><code>go get github.com/hajimehoshi/ebiten/v2
 go run -tags=example github.com/hajimehoshi/ebiten/v2/examples/rotate</code></pre>
 <p lang="en"><code>go get</code> retrieves the code of Ebiten. <code>go run</code> compiles Go files and runs it immediately after the compilation. As the first retrieving the code and compilation might take a little long time, please wait for a while. Note that you can see what is happening on the compilation process with <code>-x</code> option if you want.</p>
 <p lang="ja"><code>go get</code> は Ebiten のコードを取得します。 <code>go run</code> は Go ファイルをコンパイルし、即座に実行します。最初のコード取得とコンパイルは少々時間がかかるかもしれないため、しばらくお待ち下さい。必要ならば <code>-x</code> をつけることで、コンパイル処理中に何が行われているのかを見ることができます。</p>
-<p lang="zh">使用<code>go get</code>可以检索Ebiten代码. 使用<code>go run</code> 可以在编译Go文件后立刻运行. 第一次检索代码和编译可能会花很长时间, 请稍加等待. 提示: 如果您想看看编译器在干什么,可以加上 <code>-x</code> 参数.</p>
+<p lang="zh">使用 <code>go get</code> 可以获取 Ebiten 库. 使用 <code>go run</code> 可以在编译Go文件后立刻运行。 第一次获取库和编译可能会花很长时间, 请稍加等待. 提示: 如果您想看看编译器正在干什么,可以加上 <code>-x</code> 参数.</p>
 <p lang="en">Note that <code>-tags=example</code> is needed to execute the examples as the Ebiten example packages require the build tag.</p>
 <p lang="ja"><code>-tags=example</code> は Ebiten のサンプルを実行するために必要です。 Ebiten サンプルのパッケージがビルドタグを必要とするためです。</p>
-<p lang="zh">注意: 如果您想要运行Ebiten的示例游戏,你需要在运行时加上<code>-tags=example</code>参数.</p>
+<p lang="zh">注意: 如果您想要运行Ebiten的示例游戏,你需要在运行时加上<code>-tags=example</code>参数。</p>
 <p lang="en">If you see the window with a rotating Gophers picture, congratulations! You have succeeded to install Ebiten.</p>
 <p lang="ja">回転する Gopher の絵がウィンドウ上に表示されたならば、おめでとうございます! Ebiten のインストールに成功しました。</p>
-<p lang="zh">如果您在窗口上看到这张Gopher的图片,恭喜你!你已经成功安装Ebiten.</p>
+<p lang="zh">如果您在窗口上看到这张 Gopher 的图片,恭喜你!你已经成功安装Ebiten。</p>
 <p class="img thumbnail"><img src="/images/rotate.png" width="320" height="240" alt="Rotate example"></p>
 <script>
   function switchOS(os) {
