@@ -22,7 +22,7 @@ go generate .
 
 ## 贡献
 
-如果您希望贡献中文翻译文档,请直接Pull.
+如果您希望贡献中文翻译文档,请直接提交 [Pull Request](https://github.com/EbitenPot/ebiten.org/pulls) .
 
 如果您想为源文档贡献,请见下:
 > Contributions are welcome. However, if you try to contribute one or more sections or articles, please ask Hajime Hoshi <hajimehoshi@gmail.com> before writing.
