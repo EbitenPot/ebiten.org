@@ -129,7 +129,7 @@
 <div data-tags="freebsd">
   <p lang="en"><em>Caution: Ebiten on FreeBSD is not tested well by the author.</em></p>
   <p lang="ja"><em>注意: FreeBSD 上の Ebiten は、作者によってあまりテストされていません。</em></p>
-  <p lang="zh"><em>注意: 本人在FreeBSD上的测试并不尽如人意.</em></p>
+  <p lang="zh"><em>注意: 开发者在FreeBSD上的测试并不尽如人意.</em></p>
   <h2 lang="en">Desktop Environment</h2>
   <h2 lang="ja">デスクトップ環境</h2>
   <h2 lang="zh">桌面环境</h2>
@@ -159,20 +159,25 @@
   <div data-tags="darwin">
     <p lang="en">On the latest macOS, just type <code>clang</code> on your terminal and a dialog would appear if you don't have clang compiler. Follow the instruction to install it.</p>
     <p lang="ja">最新の macOS ならば、ターミナル上で <code>clang</code> と入力すれば、 clang がまだインストールされていないのであれば、ダイアログが表示されます。指示に従ってインストールしてください。</p>
+    
     <p lang="en">You might find the following error when executing clang.</p>
     <p lang="ja">clang 実行中に次のようなエラーメッセージが表示されるかもしれません。</p>
+    
     <pre><code>xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun</code></pre>
     <p lang="en">In this case, run <code>xcode-select --install</code> and install commandline tools.</p>
     <p lang="ja">その場合は <code>xcode-select --install</code> を実行して、コマンドラインツールをインストールしてください。</p>
+  
   </div>
   <div data-tags="linux">
     <p lang="en">Use your distribution's package manager. For example, Ubuntu can use <code>apt</code>.</p>
     <p lang="ja">お使いのディストリビューションのパッケージマネージャを使ってください。例えば、 Ubuntu では <code>apt</code> が使えます。</p>
+    <p lang="zh">使用Linux发行版的包管理器。例如，Ubuntu可以使用<code>apt</code>.</p>
     <pre><code>apt install gcc</code></pre>
   </div>
   <div data-tags="freebsd">
     <p lang="en">Use <code>pkg</code>.</p>
     <p lang="ja"><code>pkg</code> を使ってください。</p>
+    <p lang="zh">使用<code>pkg</code>。</p>
     <pre><code>pkg install clang</code></pre>
   </div>
 </div>
@@ -201,9 +206,11 @@
 <h2>Ebiten</h2>
 <p lang="en">Ebiten can be used as a usual Go library. Go command automatically installs Ebiten when your program uses Ebiten.</p>
 <p lang="ja">Ebiten は通常の Go ライブラリとして使用できます。プログラムが Ebiten を使用していれば、 Go コマンドが自動的に Ebiten をインストールします。</p>
+<p lang="zh">Ebiten可以作为一个普通的Go库使用。当您的程序引用Ebiten包时，Go会自动安装Ebiten。</p>
 
 <p lang="en">First, create your local module.</p>
 <p lang="ja">最初に、ローカルモジュールを作ります。</p>
+<p lang="zh">首先,新建一个本地软件包。</p>
 
 <pre><code># Create a directory for your game.
 mkdir yourgame
@@ -213,7 +220,7 @@ cd yourgame
 go mod init github.com/yourname/yourgame</code></pre>
 <p lang="en">Use URL for your module name like <code>github.com/yourname/yourgame</code>. Actually, any module name like <code>example.com/m</code> is fine as long as you don't plan to share this publicly. You can change the module name anytime later.</p>
 <p lang="ja"><code>github.com/yourname/yourgame</code> のような URL をモジュール名に使用します。実際のところ、自分のプログラムを公開するつもりがないのであれば、 <code>example.com/m</code> などどんなモジュール名でも問題ありません。モジュール名は後でいつでも変えられます。</p>
-
+<p lang="zh">Use URL for your module name like <code>github.com/yourname/yourgame</code>. Actually, any module name like <code>example.com/m</code> is fine as long as you don't plan to share this publicly. You can change the module name anytime later.</p>
 <p lang="en">Then, run the command to execute an Ebiten example.</p>
 <p lang="ja">次に、 Ebiten のサンプルを実行します。</p>
 <p lang="zh">然后, 通过命令行运行一个 Ebiten示例. </p>
