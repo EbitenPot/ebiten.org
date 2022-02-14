@@ -5,7 +5,7 @@
 
 本中文文档基于官方文档(<https://ebiten.org>)翻译.
 
-Github Page: <https://ebitenpot.github.io/ebiten.org/>
+在线使用: <https://ebiten-zh.vercel.app/>
 
 快快加入Ebiten中文交流群:[953871123](https://jq.qq.com/?_wv=1027&k=XDKjyoa7)
 
