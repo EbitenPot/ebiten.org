@@ -124,7 +124,6 @@
       <article>
         <div lang="en">
   <h1>Ebiten 2.3 Release Notes</h1>
-  <p><em>v2.3.0 is not released yet. This document is a draft.</em></p>
   <h2>v2.3.0</h2>
   <p><a href="https://github.com/hajimehoshi/ebiten/milestone/63?closed=1">Issues for v2.3.0</a></p>
   <h3>DirectX on Windows</h3>
@@ -134,7 +133,7 @@
   <p>(<a href="https://github.com/hajimehoshi/ebiten/issues/1900">#1900</a>)</p>
   <p>In the previous version, Ebiten supported Nintendo Switch by <a href="https://github.com/hajimehoshi/go2cpp"><code>go2cpp</code></a> by converting Go program to C++ via the WebAssembly format. This was a portable and simple solution. However, an application was single-threaded and not performant due to the WebAssembly restriction. Compiling time for bunch of C++ files was also problematic.</p>
   <p>In order to resolve these problems, Ebiten now supports a native compiling for Nintendo Switch by <a href="https://github.com/hajimehoshi/hitsumabushi">Hitsumabushi</a>, which replaces system calls in the Go runtime with C function calls. For more technical details, see <a href="/blog/native_compiling_for_nintendo_switch.html">a blog article about Hitsumabushi</a>.</p>
-  <p>In order to support this, Ebiten intorduced a new build tag <code>ebitencbackend</code>.</p>
+  <p>In order to support this, Ebiten introduced a new build tag <code>ebitencbackend</code>.</p>
   <h3>An environment variable <code>EBITEN_GRAPHICS_LIBRARY</code></h3>
   <p>You can specify an underlying graphics library for Ebiten by an environment variable <code>EBITEN_GRAPHICS_LIBRARY</code>.</p>
   <ul>
@@ -146,7 +145,7 @@
   <p>A build tag <code>ebitengl</code> was removed.</p>
   <h3>A build tag <code>ebitenexternaldll</code></h3>
   <p>(<a href="https://github.com/hajimehoshi/ebiten/issues/1832">#1832</a>)</p>
-  <p>Ebiten embeds DLL files for an Windows executable, and the executable extracts them on the fly. However, this can be problematic as the application might be unexpectdly recognized as a virus by some virus checkers.</p>
+  <p>Ebiten embeds DLL files for a Windows executable, and the executable extracts them on the fly. However, this can be problematic as the application might be unexpectdly recognized as a virus by some virus checkers.</p>
   <p>A new build tag <code>ebitenexternaldll</code> stops embedding DLL file in a Windows executable. The executable will require a DLL file at the working directory. Copy them from Ebiten repository's <code>internal/glfw</code> directory:</p>
   <ul>
     <li><code>glfw_windows_386.dll</code> for Windows GOARCH=386</li>
@@ -174,6 +173,13 @@
     <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#SetWindowResizingMode"><code>ebiten.SetWindowResizingMode</code></a> sets the mode in which a user resizes the window.</li>
   </ul>
   <p><code>ebiten.IsWindowResizable</code> and <code>ebiten.SetWindowResizable</code> was now deprecated.</p>
+  <h3>Real-time PCM</h3>
+  <p>(<a href="https://github.com/hajimehoshi/ebiten/issues/2026">#2026</a>)</p>
+  <p>Ebiten introduced a new API for real-time PCM by adjusting an audio player's buffer size:</p>
+  <ul>
+    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2/audio#Player.SetBufferSize"><code>(*audio.Player).SetBufferSize</code></a> adjusts the buffer size of the player. A small buffer size is useful if you want to play a real-time PCM for example.</li>
+  </ul>
+  <p>For an actual usage, see the new example <code>realtimepcm</code>.</p>
   <h3>Other new features</h3>
   <ul>
     <li>Gamepad support for iOS (<a href="https://github.com/hajimehoshi/ebiten/issues/1105">#1105</a>)</li>
@@ -181,9 +187,9 @@
     <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#SetScreenFilterEnabled"><code>ebiten.SetScreenFilterEnabled</code></a> (<a href="https://github.com/hajimehoshi/ebiten/issues/1772">#1772</a>)</li>
     <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2/text#AppendGlyphs"><code>text.AppendGlyphs</code></a> (<a href="https://github.com/hajimehoshi/ebiten/issues/1871">#1871</a>)</li>
     <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#ColorM.ScaleWithColor"><code>(*ebiten.ColorM).ScaleWithColor</code></a> (<a href="https://github.com/hajimehoshi/ebiten/issues/1944">#1944</a>)</li>
-    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2/audio#Player.SetBufferSize"><code>(*audio.Player).SetBufferSize</code></a> (<a href="https://github.com/hajimehoshi/ebiten/issues/2026">#2026</a>)</li>
   </ul>
   <h3>Bug fixes</h3>
+  <p>This release includes all the bug fixes in v2.2.x.</p>
   <ul>
     <li>Slight noises for a looped audio stream (<a href="https://github.com/hajimehoshi/ebiten/issues/1888">#1888</a>)</li>
     <li>Bunch of bug fixes in <a href="/documents/shader.html">Kage</a> like wrong type checkings</li>
@@ -197,7 +203,6 @@
 </div>
 <div lang="ja">
   <h1>Ebiten 2.3 リリースノート</h1>
-  <p><em>v2.3.0 はまだリリースされていません。この記事はドラフトです。</em></p>
   <h2>v2.3.0</h2>
   <p><a href="https://github.com/hajimehoshi/ebiten/milestone/63?closed=1">Issues for v2.3.0</a></p>
   <h3>Windows での DirectX サポート</h3>
@@ -247,6 +252,13 @@
     <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#SetWindowResizingMode"><code>ebiten.SetWindowResizingMode</code></a>: どのようにユーザーがウィンドウをリサイズできるかのモードを設定します。</li>
   </ul>
   <p><code>ebiten.IsWindowResizable</code> と <code>ebiten.SetWindowResizable</code> は非推奨になりました。</p>
+  <h3>リアルタイム PCM</h3>
+  <p>(<a href="https://github.com/hajimehoshi/ebiten/issues/2026">#2026</a>)</p>
+  <p>オーディオプレイヤーのバッファサイズを調整して、リアルタイム PCM を実現する新しい API が導入されました:</p>
+  <ul>
+    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2/audio#Player.SetBufferSize"><code>(*audio.Player).SetBufferSize</code></a> はプレイヤーのバッファサイズを調整します。小さいバッファサイズは、例えばリアルタイム PCM を再生したいときに便利です。</li>
+  </ul>
+  <p>実例は新しいサンプル <code>realtimepcm</code> を参照してください。</p>
   <h3>その他の新しい機能</h3>
   <ul>
     <li>iOS のゲームパッドサポート (<a href="https://github.com/hajimehoshi/ebiten/issues/1105">#1105</a>)</li>
@@ -254,9 +266,9 @@
     <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#SetScreenFilterEnabled"><code>ebiten.SetScreenFilterEnabled</code></a> (<a href="https://github.com/hajimehoshi/ebiten/issues/1772">#1772</a>)</li>
     <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2/text#AppendGlyphs"><code>text.AppendGlyphs</code></a> (<a href="https://github.com/hajimehoshi/ebiten/issues/1871">#1871</a>)</li>
     <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#ColorM.ScaleWithColor"><code>(*ebiten.ColorM).ScaleWithColor</code></a> (<a href="https://github.com/hajimehoshi/ebiten/issues/1944">#1944</a>)</li>
-    <li><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2/audio#Player.SetBufferSize"><code>(*audio.Player).SetBufferSize</code></a> (<a href="https://github.com/hajimehoshi/ebiten/issues/2026">#2026</a>)</li>
   </ul>
   <h3>バグ修正</h3>
+  <p>このリリースには、 v2.2.x にあるすべてのバグ修正が含まれます。</p>
   <ul>
     <li>ループするオーディオストリームの僅かなノイズを修正 (<a href="https://github.com/hajimehoshi/ebiten/issues/1888">#1888</a>)</li>
     <li><a href="/documents/shader.html">Kage</a> のたくさんのバグ (間違った型チェックなど) を修正</li>
