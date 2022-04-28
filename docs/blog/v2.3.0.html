@@ -3,23 +3,23 @@
   <head>
     <meta charset="utf-8">
     
-    <meta name="description" content="Ebiten 是一款由Go语言开发的开源游戏引擎. Ebiten的简单API可以让您的2D游戏开发更加简单快捷,并支持同时发布到多平台.">
+    <meta name="description" content="Ebiten is an open source game library for the Go programming language. Ebiten&#39;s simple API allows you to quickly and easily develop 2D games that can be deployed across multiple platforms.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#db5620">
-    <meta property="og:title" content="Hello! - Ebiten">
-    <meta property="og:site_name" content="Ebiten - 一款Go语言编写的超级简单2D游戏引擎">
+    <meta property="og:title" content="v2.3.0 is released - Ebiten">
+    <meta property="og:site_name" content="Ebiten - A dead simple 2D game library for Go">
     <meta property="og:image" content="https://ebiten.org/images/share.png">
-    <meta property="og:description" content="Ebiten 是一款由Go语言开发的开源游戏引擎. Ebiten的简单API可以让您的2D游戏开发更加简单快捷,并支持同时发布到多平台.">
+    <meta property="og:description" content="Ebiten is an open source game library for the Go programming language. Ebiten&#39;s simple API allows you to quickly and easily develop 2D games that can be deployed across multiple platforms.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@hajimehoshi">
-    <meta name="twitter:title" content="Hello! - Ebiten">
-    <meta name="twitter:description" content="Ebiten 是一款由Go语言开发的开源游戏引擎. Ebiten的简单API可以让您的2D游戏开发更加简单快捷,并支持同时发布到多平台.">
+    <meta name="twitter:title" content="v2.3.0 is released - Ebiten">
+    <meta name="twitter:description" content="Ebiten is an open source game library for the Go programming language. Ebiten&#39;s simple API allows you to quickly and easily develop 2D games that can be deployed across multiple platforms.">
     <meta name="twitter:image" content="https://ebiten.org/images/share.png">
-    <title>Hello! - Ebiten</title>
-    <link rel="canonical" href="https://ebiten.org/blog/hello.html">
+    <title>v2.3.0 is released - Ebiten</title>
+    <link rel="canonical" href="https://ebiten.org/blog/v2.3.0.html">
     <link rel="stylesheet" type="text/css" href="/styles/style.css">
     <link rel="icon" href="/images/favicon.png" type="image/png">
-    <link rel="alternate" type="application/atom+xml" title="Ebiten博客" href="https://ebiten.org/blog/feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="Ebiten Blog" href="https://ebiten.org/blog/feed.xml">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
     <script src="/scripts/script.js" defer></script>
     
@@ -39,30 +39,23 @@
       <ul id="language">
       </ul>
       <ul>
-        <li><a href="https://ebiten.org/">官方源站</a></li>
+        <li><a href="https://ebiten-zh.vercel.app/">中文</a></li>
       </ul>
       <ul>
         <li lang="en"><a href="/">Home</a></li>
         <li lang="ja"><a href="/">ホーム</a></li>
-        <li lang="zh"><a href="/">主页</a></li>
         <li lang="en"><a href="https://github.com/hajimehoshi/ebiten">Source code</a></li>
         <li lang="ja"><a href="https://github.com/hajimehoshi/ebiten">ソースコード</a></li>
-        <li lang="zh"><a href="https://github.com/hajimehoshi/ebiten">源代码</a></li>
         <li lang="en"><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2">API reference</a></li>
         <li lang="ja"><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2">API リファレンス</a></li>
-        <li lang="zh"><a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2">API 文档</a></li>
         <li lang="en"><a href="/tour/">Tour (WIP)</a></li>
         <li lang="ja"><a href="/tour/">ツアー (未完成)</a></li>
-        <li lang="zh"><a href="/tour/">教程(未完成)</a></li>
         <li lang="en"><a href="/documents/">Documents</a></li>
         <li lang="ja"><a href="/documents/">ドキュメント</a></li>
-        <li lang="zh"><a href="/documents/">文档</a></li>
         <li lang="en"><a href="/examples/">Examples</a></li>
         <li lang="ja"><a href="/examples/">サンプル</a></li>
-        <li lang="zh"><a href="/examples/">实例</a></li>
         <li lang="en"><a href="/blog/">Blog</a></li>
         <li lang="ja"><a href="/blog/">ブログ</a></li>
-        <li lang="zh"><a href="/blog/">Blog</a></li>
       </ul>
       <h2>Blog</h2>
 <h3>2022-04</h3>
@@ -155,18 +148,45 @@
     </nav>
     <main>
       <article>
-        <h1>Hello!</h1>
-<p class="meta">Hajime Hoshi<br><span id="meta-created">2019-11-22</span></p>
-<p>Hello! This is the very first article of the blog.</p>
-<p>I'd like to share information about Ebiten e.g., new releases or new updates.</p>
-<p>I'm now preparing an Atom feed. Stay tuned :-)</p>
+        <div lang="en">
+  <h1>v2.3.0 is released</h1>
+  <p class="meta">Hajime Hoshi<br><span id="meta-created">2022-04-26</span></p>
+  <p>I am very happy to announce the release of v2.3.0 (<a href="/documents/2.3.html">Release Note</a>).</p>
+  <p>I appreciate all the contributors and <a href="https://github.com/sponsors/hajimehoshi">all the sponsors</a>. Thank you very much!</p>
+  <p>v2.3.0 includes these new features:</p>
+  <ul>
+    <li><a href="/documents/2.3.html#DirectX_on_Windows">Supporting DirectX on Windows</a></li>
+    <li><a href="/documents/2.3.html#Native_compile_for_Nintendo_Switch™">Native compile for Nintendo Switch™</a></li>
+    <li><a href="/documents/2.3.html#A_build_tag_ebitenexternaldll">A build tag <code>ebitenexternaldll</code></a></li>
+    <li><a href="/documents/2.3.html#Vibration">Device vibration</a></li>
+    <li><a href="/documents/2.3.html#Real-time_PCM">Real-time PCM</a></li>
+    <li>etc.</li>
+  </ul>
+  <p>v2.3.0 also improves performance in terms of speed and memory usage.</p>
+  <p>I appreciate your feedbacks!</p>
+</div>
+<div lang="ja">
+  <h1>v2.3.0 がリリースされました</h1>
+  <p class="meta">Hajime Hoshi<br><span id="meta-created">2022-04-26</span></p>
+  <p>v2.3.0 がリリースされました! 詳しくは<a href="/documents/2.3.html">リリースノート</a>を参照してください。</p>
+  <p>すべてのコントリビューターと<a href="https://github.com/sponsors/hajimehoshi">スポンサーの皆様</a>に感謝いたします。どうもありがとうございます!</p>
+  <p>v2.3.0 に入った新しい機能は次のとおりです:</p>
+  <ul>
+    <li><a href="/documents/2.3.html#Windows_での_DirectX_サポート">Windows の DirectX サポート</a></li>
+    <li><a href="/documents/2.3.html#Nintendo_Switch™_向けのネイティブコンパイル">Nintendo Switch™ 向けネイティブコンパイル</a></li>
+    <li><a href="/documents/2.3.html#ビルドタグ_ebitenexternaldll">ビルドタグ <code>ebitenexternaldll</code></a></li>
+    <li><a href="/documents/2.3.html#バイブレーション">デバイスのバイブレーション</a></li>
+    <li><a href="/documents/2.3.html#リアルタイム_PCM">リアルタイム PCM</a></li>
+    <li>その他</li>
+  </ul>
+  <p>v2.3.0 で、スピードやメモリ使用量などのパフォーマンス改善も行いました。</p>
+  <p>フィードバックお待ちしております!</p>
+</div>
 
       </article>
       <footer>
-        <p lang="en">Feedback about this page? <a href="https://github.com/ebiten/ebiten.org/issues/new?body=https%3a%2f%2febiten.org%2fblog%2fhello.html%0a%0a">Please reach out on GitHub</a>. Thank you!</p>
-        <p lang="ja">このページに何か問題がありましたら、<a href="https://github.com/ebiten/ebiten.org/issues/new?body=https%3a%2f%2febiten.org%2fblog%2fhello.html%0a%0a">GitHub にて報告</a>していただけると幸いです。</p>
-        <p lang="zh">如果您有任何问题,可以反馈至<a href="https://github.com/ebitenpot/ebiten.org/issues/new?body=https%3a%2f%2febiten.org%2fblog%2fhello.html%0a%0a">GitHub issue</a>.</p>
-        <p>2021-2022 <a href="https://github.com/ebitenpot/"> EbitenPot Project</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://ebiten.org/blog/hello.html">origin</a></p>
+        <p lang="en">Feedback about this page? <a href="https://github.com/ebiten/ebiten.org/issues/new?body=https%3a%2f%2febiten.org%2fblog%2fv2.3.0.html%0a%0a">Please reach out on GitHub</a>. Thank you!</p>
+        <p lang="ja">このページに何か問題がありましたら、<a href="https://github.com/ebiten/ebiten.org/issues/new?body=https%3a%2f%2febiten.org%2fblog%2fv2.3.0.html%0a%0a">GitHub にて報告</a>していただけると幸いです。</p>
       </footer>
     </main>
   </body>
