@@ -1,5 +1,5 @@
 @import url('./normalize.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
 
 /* font */
@@ -207,6 +207,18 @@ h1.big {
     margin-top: 0;
     margin-bottom: 48px;
 }
+h1.big .main {
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+h1.big .tm {
+    margin-top: 0;
+    margin-bottom: 0px;
+}
+h1.big .sub {
+    margin-top: 0px;
+    margin-bottom: -1px;
+}
 h2 {
     margin-top: 48px;
     margin-bottom: 24px;
@@ -265,7 +277,7 @@ ul ul, ul ol, ol ul, ol ol {
 }
 body > nav h1 {
     margin-top: 24px;
-    margin-bottom: 13px;
+    margin-bottom: 9px;
 }
 body > nav h2 {
     margin-top: 0;
@@ -337,12 +349,20 @@ h1 {
     top: -10px;
 }
 h1.big {
-    font-size: 70px;
+    font-size: 56px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
     top: 16px;
+}
+h1.big span.tm {
+    font-size: 32px;
+    position: relative;
+    top: -12px;
 }
 h1.big > span.sub {
     font-size: 20px;
     font-weight: normal;
+    letter-spacing: 0;
 }
 
 h2, h2 > code {
@@ -376,12 +396,13 @@ h4 {
 }
 
 body > nav h1 {
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
     line-height: 24px;
 
     position: relative;
-    top: -8px;
+    top: -12px;
 }
 body > nav h2 {
     font-size: 18px;
@@ -528,6 +549,12 @@ p.img img, p.img video {
 p.img.thumbnail img, p.img iframe, iframe[src^="https://www.youtube.com/embed/"] {
     max-width: 100%;
 }
+h1.big > span.main {
+    display: block;
+}
+h1.big > span.sub {
+    display: block;
+}
 
 /* logo */
 
@@ -550,8 +577,8 @@ h1.big > span.main:before {
 body > nav h1:before {
     content: "";
     display: inline-block;
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
 
     background-image: url(../images/logo.png);
     background-position: left center;
@@ -688,24 +715,11 @@ input#sidemenu:checked ~ label.sidemenucover {
         grid-column-start: span 1;
     }
     h1.big {
-        margin-bottom: 38px;
-    }
-    h1.big > span.sub {
-        font-size: 18px;
-    }
-}
-@media only screen and (max-width: 350px) {
-    h1.big {
-        font-size: 63px;
-        margin-bottom: 20px;
-        margin-top: 8px;
-    }
-    h1.big > span.sub {
-        font-size: 16px;
+        font-size: 48px;
     }
     h1.big > span.main:before {
-        width: 72px;
-        height: 72px;
+        width: 66px;
+        height: 66px;
     }
 }
 

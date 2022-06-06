@@ -3,19 +3,19 @@
   <head>
     <meta charset="utf-8">
     
-    <meta name="description" content="Ebiten 是一款由Go语言开发的开源游戏引擎. Ebiten的简单API可以让您的2D游戏开发更加简单快捷,并支持同时发布到多平台.">
+    <meta name="description" content="Ebitengine 是一款由Go语言开发的开源游戏引擎. Ebitengine 的简单API可以让您的2D游戏开发更加简单快捷,并支持同时发布到多平台.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#db5620">
-    <meta property="og:title" content="FAQ - Ebiten">
-    <meta property="og:site_name" content="Ebiten - 一款Go语言编写的超级简单2D游戏引擎">
+    <meta property="og:title" content="FAQ - Ebitengine">
+    <meta property="og:site_name" content="Ebitengine - 一款Go语言编写的超级简单2D游戏引擎">
     <meta property="og:image" content="https://ebiten.org/images/share.png">
-    <meta property="og:description" content="Ebiten 是一款由Go语言开发的开源游戏引擎. Ebiten的简单API可以让您的2D游戏开发更加简单快捷,并支持同时发布到多平台.">
+    <meta property="og:description" content="Ebitengine 是一款由Go语言开发的开源游戏引擎. Ebitengine 的简单API可以让您的2D游戏开发更加简单快捷,并支持同时发布到多平台.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@hajimehoshi">
-    <meta name="twitter:title" content="FAQ - Ebiten">
-    <meta name="twitter:description" content="Ebiten 是一款由Go语言开发的开源游戏引擎. Ebiten的简单API可以让您的2D游戏开发更加简单快捷,并支持同时发布到多平台.">
+    <meta name="twitter:title" content="FAQ - Ebitengine">
+    <meta name="twitter:description" content="Ebitengine 是一款由Go语言开发的开源游戏引擎. Ebitengine 的简单API可以让您的2D游戏开发更加简单快捷,并支持同时发布到多平台.">
     <meta name="twitter:image" content="https://ebiten.org/images/share.png">
-    <title>FAQ - Ebiten</title>
+    <title>FAQ - Ebitengine</title>
     <link rel="canonical" href="https://ebiten.org/documents/faq.html">
     <link rel="stylesheet" type="text/css" href="/styles/style.css">
     <link rel="icon" href="/images/favicon.png" type="image/png">
@@ -35,7 +35,7 @@
   <body>
     <input type="checkbox" id="sidemenu"><label for="sidemenu" class="sidemenubutton"></label><label for="sidemenu" class="sidemenucover"></label>
     <nav>
-      <h1><a href="/">Ebiten</a></h1>
+      <h1><a href="/">Ebitengine™</a></h1>
       <ul id="language">
       </ul>
       <ul>
@@ -63,6 +63,9 @@
         <li lang="en"><a href="/blog/">Blog</a></li>
         <li lang="ja"><a href="/blog/">ブログ</a></li>
         <li lang="zh"><a href="/blog/">Blog</a></li>
+        <li lang="en"><a href="/contact.html">Contact Us</a></li>
+        <li lang="ja"><a href="/contact.html">連絡先</a></li>
+        <li lang="zh"><a href="/contact.html">联系方式</a></li>
       </ul>
       <h2 lang="en">Documents</h2>
 <h2 lang="ja">ドキュメント</h2>
@@ -107,16 +110,16 @@
   <li lang="zh"><a href="./cheatsheet.html">常用命令备忘录</a></li>
   <li lang="en"><a href="./cheatsheet.html">Cheat Sheet</a></li>
   <li lang="ja"><a href="./cheatsheet.html">Cheat Sheet</a></li>
-  <li lang="en"><a href="./matrix.html">Matrix in Ebiten</a></li>
-  <li lang="ja"><a href="./matrix.html">Ebiten における行列</a></li>
-  <li lang="zh"><a href="./matrix.html">Ebiten中的矩阵</a></li>
+  <li lang="en"><a href="./matrix.html">Matrix in Ebitengine</a></li>
+  <li lang="ja"><a href="./matrix.html">Ebitengine における行列</a></li>
+  <li lang="zh"><a href="./matrix.html">Ebitengine中的矩阵</a></li>
   <li><a href="./faq.html">FAQ</a></li>
   <li><a href="./performancetips.html">Performance Tips</a></li>
   <li><a href="./packages.html">Packages</a></li>
   <li><a href="./implementation.html">Implementation</a></li>
-  <li lang="en"><a href="./to_v2.html">Ebiten v2 Migration Guide</a></li>
-  <li lang="ja"><a href="./to_v2.html">Ebiten v2 移行ガイド</a></li>
-  <li lang="zh"><a href="./to_v2.html">Ebiten V2 升级迁移指南</a></li>
+  <li lang="en"><a href="./to_v2.html">Ebitengine v2 Migration Guide</a></li>
+  <li lang="ja"><a href="./to_v2.html">Ebitengine v2 移行ガイド</a></li>
+  <li lang="zh"><a href="./to_v2.html">Ebitengine V2 升级迁移指南</a></li>
 </ul>
 
     </nav>
@@ -127,12 +130,12 @@
 <h3>Why do the examples use the build tag <code>example</code>?</h3>
 <p>With the build tag, <code>go get -u github.com/hajimehoshi/ebiten/v2/...</code> doesn't install the example binaries in your <code>$GOPATH/bin</code>.</p>
 <p>Such build tags are an idiom you can find e.g. in <code>golang.org/x/exp/shiny/example</code>.</p>
-<h3>My app built with Ebiten creates an unknown process "Console Window Host". What is this?</h3>
-<p>This is because your app is still a console app, not a GUI app. Ebiten tries to close the console when necessary, but the app itself is still not recognized as a GUI app. You can suppress this by specifying ldflags when go-building like this:</p>
+<h3>My app built with Ebitengine creates an unknown process "Console Window Host". What is this?</h3>
+<p>This is because your app is still a console app, not a GUI app. Ebitengine tries to close the console when necessary, but the app itself is still not recognized as a GUI app. You can suppress this by specifying ldflags when go-building like this:</p>
 <pre><code>go build -ldflags -H=windowsgui path/to/your/game</code></pre>
-<h3>Why did you name the lib "Ebiten"?</h3>
-<p>It's because Ebiten is delicious.</p>
-<h3>Is it possible to cross-compile an application with Ebiten?</h3>
+<h3>Why did you name the lib "Ebitengine"?</h3>
+<p>This is a portmanteau of an Ebiten and an Engine. An Ebiten is delicious.</p>
+<h3>Is it possible to cross-compile an application with Ebitengine?</h3>
 <p>Yes and no. If the target is Windows or Wasm, yes. Otherwise, it is almost impossible to cross-compile due to Cgo unfortunately. See also <a href="https://github.com/golang/go/issues/18296">Go issue #18296</a>.</p>
 <h2>Graphics</h2>
 <h3>How to draw lines?</h3>
@@ -141,7 +144,7 @@
 <h3>How to take a screenshot?</h3>
 <p>Specify the key to environment variable <code>EBITEN_SCREENSHOT_KEY</code> and you can take a screenshot by pressing the specified key.</p>
 <pre><code>EBITEN_SCREENSHOT_KEY=escape go run .</code></pre>
-<h3>Ebiten's screen is scaled (and blurred) on hi-DPI screen. Can I disable this scaling? In other words, can I have a hi-DPI mode?</h3>
+<h3>Ebitengine's screen is scaled (and blurred) on hi-DPI screen. Can I disable this scaling? In other words, can I have a hi-DPI mode?</h3>
 <p>You can make <code>(ebiten.Game).Layout</code> return a bigger size than the outside size. By multiplying the outside size by <code>ebiten.DeviceScaleFactor()</code>, you can get a hi-DPI game screen. For an actual example, see <a href="https://github.com/hajimehoshi/ebiten/tree/1.12/examples/highdpi/main.go"><code>examples/highdpi</code></a>.</p>
 <h3>Found a lot of unexpected holes in the result when rendering tiles. Why?</h3>
 <p>If you render tiles by <a href="https://pkg.go.dev/github.com/hajimehoshi/ebiten/v2#Image.SubImage"><code>SubImage</code></a>, you might see unexpected pixels when</p>
