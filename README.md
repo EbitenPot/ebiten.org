@@ -1,5 +1,5 @@
 # ebiten.org
-# Ebiten 中文文档
+# Ebitengine 中文文档
 
 [![wakatime](https://wakatime.com/badge/github/EbitenPot/ebiten.org.svg)](https://wakatime.com/badge/github/EbitenPot/ebiten.org)
 
@@ -7,7 +7,7 @@
 
 在线使用: <https://ebiten-zh.vercel.app/>
 
-快快加入Ebiten中文交流群:[953871123](https://jq.qq.com/?_wv=1027&k=XDKjyoa7)
+快快加入Ebitengine中文交流群:[953871123](https://jq.qq.com/?_wv=1027&k=XDKjyoa7)
 
 EbitenPot Discord:
 
