@@ -4,3 +4,6 @@ Thumbs.db
 .vscode/
 *.exe
 docs/images.zip
+_site/**/*.html
+!_site/**/_*.html
+_site/**/feed.xml

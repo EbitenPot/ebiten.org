@@ -202,6 +202,12 @@ v2.xyz = v2.xxx        // Get vec3(1, 1, 1), and set it to all the components to
   <tr><th><code>cap(x T) int</code></th><td><span lang="en"><code>T</code> is an array type. Returns the length of the array. (v2.1.0)</span><span lang="ja"><code>T</code> は配列型。配列の長さを返す。 (v2.1.0)</span></td></tr>
   <tr><th><code>len(x T) int</code></th><td><span lang="en"><code>T</code> is an array type. Returns the length of the array.</span><span lang="ja"><code>T</code> は配列型。配列の長さを返す。</span></td></tr>
 </table>
+<h3 lang="en">Built-in functions (Control)</h3>
+<h3 lang="ja">組み込み関数 (制御)</h3>
+<table>
+  <tr><th><span lang="en">Function</span><span lang="ja">関数</span></th><th><span lang="en">Description</span><span lang="ja">説明</span></th></tr>
+  <tr><th><code>discard()</code></th><td><span lang="en">Stop outputting the current fragment. (v2.4.0)</span><span lang="ja">現在のピクセルの出力を中断する (v2.4.0)</span></td></tr>
+</table>
 <h3 lang="en">Built-in functions (mathematics)</h3>
 <h3 lang="ja">組み込み関数 (数学)</h3>
 <p lang="en">Most of the built-in functions are generic. <code>T</code> represents <code>float</code>, <code>vec2</code>, <code>vec3</code> or <code>vec4</code> unless otherwise noted. When the type is a vector, the function is applied for each component.</p>
@@ -241,7 +247,7 @@ v2.xyz = v2.xxx        // Get vec3(1, 1, 1), and set it to all the components to
   <tr><th><code>normalize(x T) T</code></th><td><span lang="en">Returns a vector in the same direction as <span class="math">x</span> but with a length of 1</span><span lang="ja"><span class="math">x</span> と同じ向きを持つが長さが 1 のベクターを返す。</span></td></tr>
   <tr><th><code>faceforward(n, i, nref T) T</code></th><td><span lang="en">Returns <span class="math">n</span> if <span class="math">\mathrm{dot}(\mathit{nref}, i) \lt 0</span>, or <span class="math">-n</span> otherwise</span><span lang="ja"><span class="math">\mathrm{dot}(\mathit{nref}, i) \lt 0</span> ならば <span class="math">n</span> を、それ以外の場合は <span class="math">-n</span> を返す。</span></td></tr>
   <tr><th><code>reflect(i, n T) T</code></th><td><span lang="en">Returns <span class="math">i - 2 \cdot \mathrm{dot}(n, i) \cdot n</span></span><span lang="ja"><span class="math">i - 2 \cdot \mathrm{dot}(n, i) \cdot n</span> を返す。</span></td></tr>
-  <tr><th><code>refract(i, n T, eta float) T</code></th><td></td></tr>
+  <tr><th><code>refract(i, n T, eta float) T</code></th><td>(v2.4.0)</td></tr>
   <tr><th><code>transpose(m T) T</code></th><td><span lang="en"><code>T</code> is a matrix type. Returns a matrix that is the transpose of <span class="math">x</span></span><span lang="ja"><code>T</code> は行列型。<span class="math">x</span> の転置行列を返す。</span></td></tr>
   <tr><th><code>dfdx(p T) T</code></th><td></td></tr>
   <tr><th><code>dfdy(p T) T</code></th><td></td></tr>
@@ -277,3 +283,12 @@ v2.xyz = v2.xxx        // Get vec3(1, 1, 1), and set it to all the components to
     <p class="img"><img src="/images/documents/shader/textureandimage.png" width="456"></p>
   </div>
 </div>
+<h2 lang="en">Editor Plugins</h2>
+<h2 lang="ja">エディタのプラグイン</h2>
+<p lang="en">There are plugins for some editors by volunteers to edit Kage programs.</p>
+<p lang="ja">Kage プログラムを編集するための、有志によるエディタプラグインがあります。</p>
+<ul>
+  <li><a href="https://github.com/sedyh/ebitengine-kage-vscode">Visual Studio Code</a></li>
+  <li><a href="https://github.com/sedyh/ebitengine-kage-vim">Vim</a></li>
+  <li><a href="https://github.com/sedyh/ebitengine-kage-sublime">Sublime</a></li>
+</ul>

@@ -22,7 +22,7 @@ tag:
 在 `contents` 目录下修改网页并运行:
 
 ```sh
-go generate .
+go run gen.go
 ```
 
 ## 贡献
