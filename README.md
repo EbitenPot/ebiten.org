@@ -3,11 +3,11 @@
 
 [![wakatime](https://wakatime.com/badge/github/EbitenPot/ebiten.org.svg)](https://wakatime.com/badge/github/EbitenPot/ebiten.org)
 
-本中文文档基于官方文档(<https://ebiten.org>)翻译.
+本中文文档基于官方文档 (<https://ebiten.org>) 翻译。
 
-在线使用: <https://ebiten-zh.vercel.app/>
+中文文档 z：<https://ebiten-zh.pages.dev/>
 
-快快加入Ebitengine中文交流群:[953871123](https://jq.qq.com/?_wv=1027&k=XDKjyoa7)
+快快加入 Ebitengine 中文交流群：[953871123](https://jq.qq.com/?_wv=1027&k=XDKjyoa7)
 
 EbitenPot Discord:
 
@@ -19,7 +19,7 @@ tag:
 
 
 ## 生成
-在 `contents` 目录下修改网页并运行:
+在 `contents` 目录下修改网页并运行：
 
 ```sh
 go run gen.go
@@ -27,9 +27,9 @@ go run gen.go
 
 ## 贡献
 
-如果您希望贡献中文翻译文档,请直接提交 [Pull Request](https://github.com/EbitenPot/ebiten.org/pulls) .
+如果您希望贡献中文翻译文档，请直接提交 [Pull Request](https://github.com/EbitenPot/ebiten.org/pulls) .
 
-如果您想为源文档贡献,请见下:
+如果您想为源文档贡献，请见下：
 > Contributions are welcome. However, if you try to contribute one or more sections or articles, please ask Hajime Hoshi <hajimehoshi@gmail.com> before writing.
 
 ## 更新 WASM 文件
@@ -44,6 +44,6 @@ GOOGLE_APPLICATION_CREDENTIALS=/path/to/credentials.json go run ./cmd/uploadwasm
 go run server.go ./docs
 ```
 
-打开 <http://127.0.0.1:8000> 测试效果.
+打开 <http://127.0.0.1:8000> 测试效果。
 
 By EldersJavas
